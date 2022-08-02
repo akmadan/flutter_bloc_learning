@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: ((context) => InternetBloc()),
+      create: ((context) => InternetBloc()), // InternetCubit
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
