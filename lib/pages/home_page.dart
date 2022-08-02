@@ -24,6 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // BlocListener - Just Listens and performs a tasks on state changed
             // BlocConsumer - Combination of both
             child: BlocConsumer<InternetBloc, InternetState>(
+                //InternetBloc == InternetCubit
                 builder: (context, state) {
           if (state is InternetGainedState) {
             return Text('Connected');
@@ -34,9 +35,11 @@ class _MyHomePageState extends State<MyHomePage> {
           }
         }, listener: ((context, state) {
           if (state is InternetGainedState) {
+            // InternetGainedState = InternetState.Gained
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text('Connected')));
           } else if (state is InternetLostState) {
+            // InternetGainedState = InternetState.Lost
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text('Lost')));
           }
